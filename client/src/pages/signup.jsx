@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Signin = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -18,7 +18,7 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/auth/signin', {
+      const res = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,7 +27,6 @@ const Signin = () => {
       });
       const data = await res.json();
       console.log(data);
-      Navigate('/')
     } catch (error) {
       console.error('Error during signup:', error);
     }
@@ -39,7 +38,13 @@ const Signin = () => {
         Sign Up
       </h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-      
+        <input
+          onChange={handleChange}
+          type='text'
+          placeholder='Username'
+          id='username'
+          className='border p-3 rounded-lg'
+        />
         <input
           onChange={handleChange}
           type='text'
@@ -57,7 +62,7 @@ const Signin = () => {
         <button
           className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
         >
-          Sign In
+          Sign Up
         </button>
       </form>
       <div className='flex gap-2 mt-5'>
@@ -70,4 +75,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default SignUp;

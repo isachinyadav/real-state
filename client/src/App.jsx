@@ -6,12 +6,14 @@ import SignOut from './pages/signout';
  import About from './pages/about';
  import Profile from './pages/profile';
  import Header  from './components/header';
+ import SignUp from './pages/signup';
 const App = () => {
   return (
     <BrowserRouter>
     <Header/>
     <Routes>
       <Route path='/' element={<Home/>}/>
+      <Route path='/signup' element={<SignUp/>}/>
       <Route path='/signin' element={<Signin/>}/>
       <Route path='/signout' element={<SignOut/>}/>
       <Route path='/about' element={<About/>}/>
