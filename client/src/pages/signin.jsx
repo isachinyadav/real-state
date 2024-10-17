@@ -7,7 +7,7 @@ import {
   signInFailure,
 } from '../redux/user/userSlice';
 import OAuth from '../components/oath';
-  const signIn=()=> {
+  const SignIn=()=> {
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -78,4 +78,4 @@ import OAuth from '../components/oath';
     </div>
   );
 }
-export default signIn
+export default SignIn
